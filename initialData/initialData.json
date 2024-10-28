@@ -1,0 +1,185 @@
+{
+    "users": [
+        {
+            "name": {
+                "first": "Michael",
+                "middle": "J.",
+                "last": "Johnson"
+            },
+            "email": "michael.johnson@gmail.com",
+            "password": "Password123!",
+            "profilePicture": {
+                "url": "http://www.image4.com",
+                "alt": "Michael's profile picture"
+            },
+            "backgroundPicture": {
+                "url": "http://www.background4.com",
+                "alt": "Michael's background picture"
+            },
+            "isAdmin": false,
+            "createdAt": "2024-10-01T10:00:00Z",
+            "followers": [],
+            "following": []
+        },
+        {
+            "name": {
+                "first": "Sarah",
+                "middle": "K.",
+                "last": "Davis"
+            },
+            "email": "sarah.davis@gmail.com",
+            "password": "Password123!",
+            "profilePicture": {
+                "url": "http://www.image5.com",
+                "alt": "Sarah's profile picture"
+            },
+            "backgroundPicture": {
+                "url": "http://www.background5.com",
+                "alt": "Sarah's background picture"
+            },
+            "isAdmin": false,
+            "createdAt": "2024-10-01T11:00:00Z",
+            "followers": [],
+            "following": []
+        },
+        {
+            "name": {
+                "first": "David",
+                "middle": "B.",
+                "last": "Wilson"
+            },
+            "email": "david.wilson@gmail.com",
+            "password": "Password123!",
+            "profilePicture": {
+                "url": "http://www.image6.com",
+                "alt": "David's profile picture"
+            },
+            "backgroundPicture": {
+                "url": "http://www.background6.com",
+                "alt": "David's background picture"
+            },
+            "isAdmin": true,
+            "createdAt": "2024-10-01T12:00:00Z",
+            "followers": [],
+            "following": []
+        }
+    ],
+    "cards": [
+        {
+            "title": "Delicious Chocolate Cake",
+            "subtitle": "A sweet delight",
+            "description": "A rich and moist chocolate cake recipe perfect for any occasion.",
+            "images": [
+                {
+                    "url": "https://example.com/cake1.jpg",
+                    "alt": "Chocolate Cake Image"
+                }
+            ],
+            "likesList": [],
+            "commentsList": [],
+            "ingredients": [
+                {
+                    "name": "Flour",
+                    "quantityInGrams": 200
+                },
+                {
+                    "name": "Sugar",
+                    "quantityInGrams": 100
+                },
+                {
+                    "name": "Cocoa Powder",
+                    "quantityInGrams": 50
+                }
+            ],
+            "instructionsList": [
+                "Preheat the oven to 350°F.",
+                "Mix all ingredients in a bowl.",
+                "Pour into a cake tin and bake for 30 minutes."
+            ],
+            "ratings": [],
+            "createdAt": "2024-10-01T10:00:00Z"
+        },
+        {
+            "title": "Classic Caesar Salad",
+            "subtitle": "A refreshing dish",
+            "description": "A classic salad recipe with crisp romaine and a creamy dressing.",
+            "images": [
+                {
+                    "url": "https://example.com/salad1.jpg",
+                    "alt": "Caesar Salad Image"
+                }
+            ],
+            "likesList": [],
+            "commentsList": [],
+            "ingredients": [
+                {
+                    "name": "Romaine Lettuce",
+                    "quantityInGrams": 150
+                },
+                {
+                    "name": "Croutons",
+                    "quantityInGrams": 50
+                },
+                {
+                    "name": "Caesar Dressing",
+                    "quantityInGrams": 30
+                }
+            ],
+            "instructionsList": [
+                "Chop the romaine lettuce.",
+                "Add croutons and dressing.",
+                "Toss and serve."
+            ],
+            "ratings": [],
+            "createdAt": "2024-10-01T11:00:00Z"
+        },
+        {
+            "title": "Spaghetti Carbonara",
+            "subtitle": "An Italian classic",
+            "description": "A creamy pasta dish made with eggs, cheese, pancetta, and pepper.",
+            "images": [
+                {
+                    "url": "https://example.com/pasta1.jpg",
+                    "alt": "Spaghetti Carbonara Image"
+                }
+            ],
+            "likesList": [],
+            "commentsList": [],
+            "ingredients": [
+                {
+                    "name": "Spaghetti",
+                    "quantityInGrams": 250
+                },
+                {
+                    "name": "Eggs",
+                    "quantityInGrams": 100
+                },
+                {
+                    "name": "Pancetta",
+                    "quantityInGrams": 100
+                }
+            ],
+            "instructionsList": [
+                "Cook the spaghetti until al dente.",
+                "Fry the pancetta until crispy.",
+                "Mix with eggs and serve immediately."
+            ],
+            "ratings": [],
+            "createdAt": "2024-10-01T12:00:00Z"
+        }
+    ],
+    "comments": [
+        {
+            "body": "This cake is amazing!",
+            "dateTime": "2024-10-01T13:00:00Z"
+        },
+        {
+            "body": "I love this salad recipe!",
+            "dateTime": "2024-10-01T14:00:00Z"
+        },
+        {
+            "body": "Best carbonara I've ever made!",
+            "dateTime": "2024-10-01T15:00:00Z"
+        }
+    ]
+}
