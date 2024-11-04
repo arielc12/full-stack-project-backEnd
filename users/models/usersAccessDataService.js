@@ -4,6 +4,7 @@ const _ = require("lodash");
 const { createError } = require("../../utils/handleErrors");
 const { comparePasswords, generateUserPassword } = require("../helpers/bcrypt");
 const config = require("config");
+const { default: mongoose } = require("mongoose");
 const db = config.get("DB");
 
 
@@ -93,36 +94,48 @@ const updateUser = async (userId, newUser) => {
 const followUser = async (followerId, followingId) => {
     if (db === "mongodb") {
         try {
+            if (!mongoose.Types.ObjectId.isValid(followerId) || !mongoose.Types.ObjectId.isValid(followingId)) {
+                return createError("Mongoose", 400, new Error("Invalid user ID"));
+            }
             const follower = await User.findById(followerId);
             const following = await User.findById(followingId);
-
             if (!follower || !following) {
                 return createError("Mongoose", 404, new Error("User not found"));
             }
             const isFollowing = follower.following.includes(followingId);
             if (isFollowing) {
-                follower.following = follower.following.filter(id => id.toString() !== followingId);
-                following.followers = following.followers.filter(id => id.toString() !== followerId);
-                await follower.save();
-                await following.save();
-                return {
-                    message: "You have unfollowed succefully"
-                };
+                await User.updateOne(
+                    { _id: followerId },
+                    { $pull: { following: followingId } }
+                );
+                await User.updateOne(
+                    { _id: followingId },
+                    { $pull: { followers: followerId } }
+                );
             } else {
-                follower.following.push(followingId);
-                following.followers.push(followerId);
-                await follower.save();
-                await following.save();
-                return {
-                    message: "You have followed succefully"
-                };
+                await User.updateOne(
+                    { _id: followerId },
+                    { $addToSet: { following: followingId } }
+                );
+                await User.updateOne(
+                    { _id: followingId },
+                    { $addToSet: { followers: followerId } }
+                );
             }
+            return {
+                message: isFollowing ? "You have unfollowed successfully" : "You have followed successfully"
+            };
         } catch (error) {
-            return createError("Mongoose", error.status || 400, error);
+            if (error instanceof mongoose.Error) {
+                return createError("Mongoose", 400, error);
+            }
+            return createError("DB", 500, new Error("An unexpected error occurred"));
         }
     }
     return createError("DB", 500, new Error("There is no other DB for this request"));
 };
+
+
 
 
 const deleteUser = async (userId) => {
